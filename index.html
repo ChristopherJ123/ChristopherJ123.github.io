@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +5,7 @@
         </title>
     </head>
     <style>
-        img {
+        img.afro {
             width: 400px;
             border-radius: 200px;
         }
@@ -22,58 +21,117 @@
         p.b {
             font-size: 50px;
             font-family: Coneria Script Demo;
-            margin-bottom: 500px;
+            margin-bottom: 100px;
         }
         p.c {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-size: 30px;
             margin-bottom: 1000px;
         }
+        div.omg {
+            display: block;
+            font-size: 25px;
+            text-align: center;
+        }
+        p.x {
+            display: inline-block;
+        }
+        #animation {
+            width: 275px;
+            height: 275px;
+            opacity: 0.1;
+            background-image: url(picture/bryan.png);
+            position: absolute
+        }
+        .bounce{
+        animation:bounce 5s linear 100;
+        }
+        @keyframes bounce{
+            0%{
+            transform:translate(0px,0px);
+
+            }
+            25%{
+            transform:translate(768px,768px);
+
+            }
+            50%{
+            transform:translate(1366px,0px);
+            
+            }
+            75%{
+            transform:translate(768px,0px);
+
+            }
+            100%{
+            transform:translate(0px,0px);
+
+            }
+        }
+        #animation:hover{
+            opacity: 1;
+        }
     </style>
     <body>
-        <img src="picture/afro.jpg" alt="afro">
-        <p class="a">Oh my, my</p>
-        <p class="b">Hello there, User</p>
+        <audio id="virus">
+            <source src="audio/virus.mp3" type="audio/mpeg">
+        </audio>
+
+        <div id="animation" class="bounce"></div>
+        <img class="afro" src="picture/technicalsupport.png" alt="afro">
+        <p class="a">You have been infected by Gayness Virus</p>
+        <p class="b">Press this button down below for more information</p>
+        <div class="omg">
+            <p class="x">Press this button!!1!</p>
+            <input type="image" src="picture/bryan.png" onclick="XDXD()">
+            <p class="x">Press this button!!1!</p>
+        </div>
         <p class="c">yamete kudasai~</h2>
         <p class="d">kimochi~</p>
     </body>
-=======
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Well hello there
-        </title>
-    </head>
-    <body>
-        <style>
-            img {
-                width: 400px;
-                border-radius: 200px;
-            }
-            body {
-                background-color: coral;
-                text-align: center;
-            }
-            p {
-                font-size: 30px;
-                font-family: cursive;
-            }
-            h1 {
-                font-size: 50px;
-                font-family: Coneria Script Demo;
-                margin-bottom: 500px;
-            }
-        </style>
-        <img src="picture/afro.jpg" alt="afro">
-        <p>Oh my, my</p>
-        <h1>Hello there, Cutie~~</p>
-	<img src="picture/Feet40.gif" alt="footjob-by-sister" style="width: 480px;">
-	<img src="picture/Feet22.gif" alt="footjob-again" style="width: 480px;">
-	<h1>AHHH AHHHH MY PENIS IS BEING STROKED BY MY SISTER'S FEET!!</h1>
-	<h1>OH MY GOD MY SPERM IS COMING OUT LIKE A FOUNTAIN!!!</h1>
-	<h1>AHHHHHHH MY CUM LANDED ON MY SISTER'S FACE AND SHE LICKED IT ALL OFF DELICIOUSLY</h1>
-	<h1>
-        <h2>yamete kudasai~</h2>
-    </body>
->>>>>>> 28eb319ea29d60bfc411fbd3c1256ee8e54ed854
+    <script>
+        var ohno = document.getElementById("virus"); 
+        function XDXD() { 
+          ohno.play(); 
+        } 
+
+        // var id = null
+        // var id2 = null
+        // var id3 = null
+        // var bryan = document.getElementById("animation")
+        // var posx = 0;
+        // var posy = 0;
+        // clearInterval(id);
+        // id = setInterval(frame, 10);
+        // function frame() {
+        //     if (posx == 1200) {
+        //         clearInterval(id)
+        //         id2 = setInterval(frame, 10);
+        //         function frame() {
+        //             if (posy == 0) {
+        //                 clearInterval(id2)
+        //                 id3 = setInterval(frame, 10)
+        //                 function frame() {
+        //                     if (posx == 0) {
+        //                     clearInterval(id3)
+        //                     } else {
+        //                         posx = posx - 2;;
+        //                         bryan.style.left = posx + 'px';
+        //                         }
+        //                 }
+        //             } else {
+        //                 posx = posx - 1;
+        //                 posy = posy - 2;
+        //                 bryan.style.left = posx + 'px';
+        //                 bryan.style.top = posy + 'px';
+        //             }
+        //         }
+        //     } else {
+        //         posx = posx + 2;
+        //         posy = posy + 1;
+        //         bryan.style.left = posx + 'px';
+        //         bryan.style.top = posy + 'px';
+        //     }
+        // }
+        </script>
 </html>
