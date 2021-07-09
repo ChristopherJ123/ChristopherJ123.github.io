@@ -5,7 +5,7 @@
         </title>
     </head>
     <style>
-        img {
+        img.afro {
             width: 400px;
             border-radius: 200px;
         }
@@ -32,24 +32,79 @@
             display: block;
             font-size: 25px;
             text-align: center;
-            margin-bottom: 500px;
         }
         p.x {
             display: inline-block;
         }
+        #animation {
+            width: 275px;
+            height: 275px;
+            opacity: 0.5;
+            background-image: url(picture/bryan.png);
+            position: absolute
+        }
     </style>
     <body>
-        <img src="picture/technicalsupport.png" alt="afro">
-        <p class="a">Oh my, my</p>
-        <p class="b">Hello there, User</p>
+        <audio id="virus">
+            <source src="audio/virus.mp3" type="audio/mpeg">
+        </audio>
+
+        <div id="animation"></div>
+        <img class="afro" src="picture/technicalsupport.png" alt="afro">
+        <p class="a">You have been infected by Gayness Virus</p>
+        <p class="b">Press this button down below for more information</p>
         <div class="omg">
             <p class="x">Press this button!!1!</p>
-            <audio class="audio" autoplay loop controls>
-                <source src="audio/virus.mp3" type="audio/mpeg">
-            </audio>
+            <input type="image" src="picture/bryan.png" onclick="XDXD()">
             <p class="x">Press this button!!1!</p>
         </div>
         <p class="c">yamete kudasai~</h2>
         <p class="d">kimochi~</p>
     </body>
+    <script>
+        var ohno = document.getElementById("virus"); 
+        function XDXD() { 
+          ohno.play(); 
+        } 
+
+        var id = null
+        var id2 = null
+        var id3 = null
+        var bryan = document.getElementById("animation")
+        var posx = 0;
+        var posy = 0;
+        clearInterval(id);
+        id = setInterval(frame, 10);
+        function frame() {
+            if (posx == 1200) {
+                clearInterval(id)
+                id2 = setInterval(frame, 10);
+                function frame() {
+                    if (posy == 0) {
+                        clearInterval(id2)
+                        id3 = setInterval(frame, 10)
+                        function frame() {
+                            if (posx == 0) {
+                            clearInterval(id3)
+                            } else {
+                                posx = posx - 2;;
+                                bryan.style.left = posx + 'px';
+                                }
+                        }
+                    return
+                    } else {
+                        posx = posx - 1;
+                        posy = posy - 2;
+                        bryan.style.left = posx + 'px';
+                        bryan.style.top = posy + 'px';
+                    }
+                }
+            } else {
+                posx = posx + 2;
+                posy = posy + 1;
+                bryan.style.left = posx + 'px';
+                bryan.style.top = posy + 'px';
+            }
+        }
+        </script>
 </html>
