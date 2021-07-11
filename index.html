@@ -1,137 +1,205 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Well hello there
-        </title>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        img.afro {
-            width: 400px;
-            border-radius: 200px;
+        .kiri {
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
-        body {
-            background-color: coral;
-            text-align: center;
+        .kanan {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            width: 600px;
         }
-        p.a {
-            font-size: 30px;
-            font-family: cursive;
-            font-weight: bolder;
+        .kanan2 {
+            position: fixed;
+
         }
-        p.b {
-            font-size: 50px;
-            font-family: Coneria Script Demo;
-            margin-bottom: 100px;
-        }
-        p.c {
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-size: 30px;
-            margin-bottom: 1000px;
-        }
-        div.omg {
-            display: block;
-            font-size: 25px;
-            text-align: center;
-        }
-        p.x {
-            display: inline-block;
-        }
-        #animation {
+        .bryanBOSS {
             width: 275px;
             height: 275px;
-            opacity: 0.1;
-            background-image: url(picture/bryan.png);
+            background: url(picture/bryan.png) no-repeat;
             position: absolute
         }
-        .bounce{
-        animation:bounce 5s linear 100;
+        
+        .body {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+        }
+        .middle {
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 200px;
+            width: 100px;
+        }
+        .menu {
+            width: 30vw;
+            height: 30vh;
+        }
+        #game {
+            transition: ease-in-out 0.2s;
+        }
+        #game:hover {
+            transform: scale(0.9);
+        }
+        #game:active {
+            transform: scale(0.7);
+            opacity: 0.7;
+        }
+        #game1:hover {
+            transform: scale(0.9);
+        }
+        #game1:active {
+            transform: scale(0.7);
+            opacity: 0.7;
+        }
+        .start {
+            width: 100%;
+            height: 100%;
+        }
+        #bounce{
+        animation:bounce 4s linear infinite;
         }
         @keyframes bounce{
             0%{
-            transform:translate(0px,0px);
+            transform:translate(0vw,20vh);
 
             }
             25%{
-            transform:translate(768px,768px);
+            transform:translate(-5vw,25vh);
 
             }
             50%{
-            transform:translate(1366px,0px);
+            transform:translate(0vw,30vh);
             
             }
             75%{
-            transform:translate(768px,0px);
+            transform:translate(5vw,25vh);
 
             }
             100%{
-            transform:translate(0px,0px);
-
+            transform:translate(0vw,20vh);
             }
         }
-        #animation:hover{
-            opacity: 1;
-        }
+
+
     </style>
-    <body>
-        <audio id="virus">
-            <source src="audio/virus.mp3" type="audio/mpeg">
-        </audio>
-
-        <div id="animation" class="bounce"></div>
-        <img class="afro" src="picture/technicalsupport.png" alt="afro">
-        <p class="a">You have been infected by Gayness Virus</p>
-        <p class="b">Press this button down below for more information</p>
-        <div class="omg">
-            <p class="x">Press this button!!1!</p>
-            <input type="image" src="picture/bryan.png" onclick="XDXD()">
-            <p class="x">Press this button!!1!</p>
+</head>
+<body>
+    <audio id="losesound" src="sound/lose.mp3"></audio>
+    <audio id="tiesound" src="sound/tie.mp3"></audio>
+    <audio id="winsound" src="sound/win.mp3"></audio>
+    <audio id="music" src="sound/music.mp3"></audio>
+    <div class="body">
+        <div class="kiri">
+            <input id="game" class="menu" type="image" src="picture/0.png" onclick="engine1()">
+            <input id="game" class="menu" type="image" src="picture/1.png" onclick="engine2()">
+            <input id="game" class="menu" type="image" src="picture/2.png" onclick="engine3()">
         </div>
-        <p class="c">yamete kudasai~</h2>
-        <p class="d">kimochi~</p>
-    </body>
-    <script>
-        var ohno = document.getElementById("virus"); 
-        function XDXD() { 
-          ohno.play(); 
-        } 
+        <div class="middle">
+            <input type="image" src="picture/start.png" onclick="mute()" id="game1" class="start">
+            <p id="result">Let the fight begin!</p>
+            <p id="score"></p>
+        </div>
+        <div class="kanan">
+            <div id="bounce" class="bryanBOSS"></div>
+            <p class="kanan2">Big man lvl 99</p>
+        </div>
 
-        // var id = null
-        // var id2 = null
-        // var id3 = null
-        // var bryan = document.getElementById("animation")
-        // var posx = 0;
-        // var posy = 0;
-        // clearInterval(id);
-        // id = setInterval(frame, 10);
-        // function frame() {
-        //     if (posx == 1200) {
-        //         clearInterval(id)
-        //         id2 = setInterval(frame, 10);
-        //         function frame() {
-        //             if (posy == 0) {
-        //                 clearInterval(id2)
-        //                 id3 = setInterval(frame, 10)
-        //                 function frame() {
-        //                     if (posx == 0) {
-        //                     clearInterval(id3)
-        //                     } else {
-        //                         posx = posx - 2;;
-        //                         bryan.style.left = posx + 'px';
-        //                         }
-        //                 }
-        //             } else {
-        //                 posx = posx - 1;
-        //                 posy = posy - 2;
-        //                 bryan.style.left = posx + 'px';
-        //                 bryan.style.top = posy + 'px';
-        //             }
-        //         }
-        //     } else {
-        //         posx = posx + 2;
-        //         posy = posy + 1;
-        //         bryan.style.left = posx + 'px';
-        //         bryan.style.top = posy + 'px';
-        //     }
-        // }
-        </script>
+
+    <script>
+        const gamestart = document.querySelectorAll("input#start");
+        gamestart.forEach(button => {
+            button.addEventListener('click', () => {
+                startFUNC();
+            })
+        });
+        const buttons = document.querySelectorAll("input#game");
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                calculation();
+            })
+        });
+        var winVAR = document.getElementById("winsound")
+        var tieVAR = document.getElementById("tiesound")
+        var loseVAR = document.getElementById("losesound")
+        var musicVAR = document.getElementById("music")
+        let player1 = 0
+        let player2 = 0
+        let resultVAR = document.getElementById("result");
+        function engine1() {
+            player1 = 0
+            process()
+        }
+        function engine2() {
+            player1 = 1
+            process()
+        }
+        function engine3() {
+            player1 = 2
+            process()
+        }
+        function process() {
+            tieVAR.pause()
+            tieVAR.currentTime = 0;
+            loseVAR.pause()
+            loseVAR.currentTime = 0;
+            winVAR.pause()
+            winVAR.currentTime = 0;
+            RandomAI();
+        }
+        function mute() {
+            tieVAR.pause()
+            tieVAR.currentTime = 0;
+            loseVAR.pause()
+            loseVAR.currentTime = 0;
+            winVAR.pause()
+            winVAR.currentTime = 0;
+            musicVAR.play()
+        }
+
+        function RandomAI() {
+            player2 = Math.floor(Math.random() * 3);
+        }
+        function calculation() {
+            if(player1 == 0 && player2 == 0 || player1 == 1 && player2 == 1 || player1 == 2 && player2 == 2) {
+                tie();
+            } else if(player1 == 0 && player2 == 1 || player1 == 1 && player2 == 2 || player1 == 2 && player2 == 0) {
+                lose();
+            } else {
+                win();
+            }
+        }
+        function tie() {
+            resultVAR.textContent = "You tied!";
+            score.textContent = "Your score = meh"
+            tieVAR.play()
+        }
+        function lose() {
+            resultVAR.textContent = "You lose!";
+            score.textContent = "Your score = gae"
+            loseVAR.play()
+        }
+        function win() {
+            resultVAR.textContent = "You win!";
+            score.textContent = "Your score = wtf cheater"
+            winVAR.play()
+        }
+    </script>
+</body>
 </html>
