@@ -354,7 +354,7 @@
             HPplayerVAR.innerHTML = "<p>"
             musicVAR.pause();
             losemusicVAR.play();
-            contentVAR.innerHTML = "<div class='endinglose'><input type='image' id='game' class='afro' src='picture/afro.png' onclick='virusFUNC()'><p class='hugefont'>YOU LOST!</p><p class='smallfont'>You have been infected by Trojan:GAYVirus.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>This tech support will help you!</p></div>"
+            contentVAR.innerHTML = "<div class='endinglose'><input type='image' id='game' class='afro' src='picture/afro.png' onclick='virusFUNC()'><p class='hugefont'>YOU LOST!</p><p class='smallfont'>You have been infected by Trojan:GAYVirus.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>This tech support will help you!</p></div><input type='image' id='game' class='menu' src='picture/retry.png' onclick='retryFUNC()'>"
             }
         }
         function loseheartComputer() {
@@ -367,7 +367,7 @@
             HPcomputerVAR.innerHTML = "<p>"
             musicVAR.pause();
             winmusicVAR.play();
-            contentVAR.innerHTML = "<div class='endingwin'><input type='image' id='game' class='afro' src='picture/bryandead2.png' onclick='hitFUNC()'><p class='hugefont'>Bryan is die :P!</p><p class='smallfont'>You have been blessed by UwU:AntigayAura.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>Well celebrate of course! OwO</p></div>"
+            contentVAR.innerHTML = "<div class='endingwin'><input type='image' id='game' class='afro' src='picture/bryandead2.png' onclick='hitFUNC()'><p class='hugefont'>Bryan is die :P!</p><p class='smallfont'>You have been blessed by UwU:AntigayAura.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>Well celebrate of course! OwO</p></div><input type='image' id='game' class='menu' src='picture/retry.png' onclick='retryFUNC()'>"
             }
         }
         function virusFUNC() {
@@ -375,6 +375,10 @@
         }
         function hitFUNC() {
             hitVAR.play();
+        }
+        function retryFUNC() {
+            location.reload();
+            return false;
         }
     </script>
 </body>
