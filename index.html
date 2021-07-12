@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            margin: 0;
+        }
         .kiri {
             display: flex;
+            flex: 1;
             position: relative;
             align-items: center;
             justify-content: center;
@@ -15,14 +19,27 @@
         }
         .kanan {
             display: flex;
+            flex: 1;
             align-items: center;
             justify-content: flex-start;
             flex-direction: column;
-            width: 600px;
         }
-        .kanan2 {
-            position: fixed;
-
+        .title {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            margin-top: 50px;
+            align-items: center;
+        }
+        .title p {
+            padding: 0 15px;
+        }
+        .middleimg {
+            width: 80px;
+            height: 80px;
+        }
+        .score {
+            display: flex;
         }
         .bryanBOSS {
             width: 275px;
@@ -31,15 +48,44 @@
             position: absolute
         }
         
-        .body {
+        .content {
             display: flex;
+            flex-direction: row;
             align-items: flex-start;
             justify-content: space-between;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 20px;
+            margin-top: 20px;
+            max-width: 1280px;
+            max-height: 720px;
+
+        }
+        .header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 70px;
+            background-color: brown;
+        }
+        .headerkiri {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+        }
+        .headerkanan {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header img {
+            width: 40px;
+            height: 40px;
         }
         .middle {
             display: flex;
+            flex: 1;
             text-align: center;
             align-items: center;
             justify-content: center;
@@ -71,6 +117,42 @@
         .start {
             width: 100%;
             height: 100%;
+
+
+        }
+        .endinglose {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            background-color: red;
+            padding-bottom: 10vmax;
+        }
+        .endingwin {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            background-color: greenyellow;
+            padding-bottom: 10vmax;
+        }
+        .afro {
+            width: 30vw;
+            height: 50vh;
+        }
+        .hugefont {
+            font-size: 5vmax;
+        }
+        .bigfont {
+            font-size: 3vmax;
+        }
+        .smallfont {
+            font-size: 2vmax;
+            font-family: 'Courier New', monospace;
         }
         #bounce{
         animation:bounce 4s linear infinite;
@@ -104,23 +186,53 @@
     <audio id="losesound" src="sound/lose.mp3"></audio>
     <audio id="tiesound" src="sound/tie.mp3"></audio>
     <audio id="winsound" src="sound/win.mp3"></audio>
+    <audio id="virus" src="sound/virus.mp3"></audio>
+    <audio id="hit" src="sound/hit.mp3"></audio>
     <audio id="music" src="sound/music.mp3"></audio>
-    <div class="body">
+    <audio id="losemusicID" src="sound/losemusic.mp3"></audio>
+    <audio id="winmusicID" src="sound/winmusic.mp3"></audio>
+    <div class="header">
+        <div class="headerkiri">
+            <div id="HPplayerID">
+                <img src="picture/heart.png" alt="heart">
+                <img src="picture/heart.png" alt="heart">
+                <img src="picture/heart.png" alt="heart">
+            </div>
+        </div>
+        <div class="headerkanan">
+            <div id="HPcomputerID">
+                <img src="picture/heart.png" alt="heart">
+                <img src="picture/heart.png" alt="heart">
+                <img src="picture/heart.png" alt="heart">
+            </div>
+        </div>
+    </div>
+    <div id="contentID">
+    <div class="content">
         <div class="kiri">
             <input id="game" class="menu" type="image" src="picture/0.png" onclick="engine1()">
             <input id="game" class="menu" type="image" src="picture/1.png" onclick="engine2()">
             <input id="game" class="menu" type="image" src="picture/2.png" onclick="engine3()">
         </div>
         <div class="middle">
-            <input type="image" src="picture/start.png" onclick="mute()" id="game1" class="start">
-            <p id="result">Let the fight begin!</p>
-            <p id="score"></p>
+            <div id="game1">
+                <input type="image" src="picture/start.png" onclick="mute()" class="start">
+            </div>
+            <div class="title">
+                <div id="human">
+                    <img src="picture/bryan.png" alt="" class="middleimg"></div>
+                <p id="result">Let the fight begin!</p>
+                <div id="computer">
+                    <img src="picture/bryan.png" alt="" class="middleimg"></div>
+            </div>
+            <div class="score"><p id="score"></p>
+            </div>
         </div>
         <div class="kanan">
             <div id="bounce" class="bryanBOSS"></div>
-            <p class="kanan2">Big man lvl 99</p>
+            <p>Big man lvl 99</p>
         </div>
-
+    </div>
 
     <script>
         const gamestart = document.querySelectorAll("input#start");
@@ -138,21 +250,36 @@
         var winVAR = document.getElementById("winsound")
         var tieVAR = document.getElementById("tiesound")
         var loseVAR = document.getElementById("losesound")
+        var virusVAR = document.getElementById("virus")
+        var hitVAR = document.getElementById("hit")
         var musicVAR = document.getElementById("music")
-        let player1 = 0
-        let player2 = 0
-        let resultVAR = document.getElementById("result");
+        var losemusicVAR = document.getElementById("losemusicID")
+        var winmusicVAR = document.getElementById("winmusicID")
+        var startVAR = document.getElementById("game1")
+        var contentVAR = document.getElementById("contentID")
+        var player1 = 0
+        var player2 = 0
+        var HPplayerVAR = document.getElementById("HPplayerID")
+        var HPcomputerVAR = document.getElementById("HPcomputerID")
+        var HPpVAR = 3
+        var HPcVAR = 3
+        var resultVAR = document.getElementById("result");
+        var humanVAR = document.getElementById("human")
+        var computerVAR = document.getElementById("computer")
         function engine1() {
             player1 = 0
             process()
+            humanVAR.innerHTML = "<img src='picture/0.png' class='middleimg'>"
         }
         function engine2() {
             player1 = 1
             process()
+            humanVAR.innerHTML = "<img src='picture/1.png' class='middleimg'>"
         }
         function engine3() {
             player1 = 2
             process()
+            humanVAR.innerHTML = "<img src='picture/2.png' class='middleimg'>"
         }
         function process() {
             tieVAR.pause()
@@ -162,6 +289,7 @@
             winVAR.pause()
             winVAR.currentTime = 0;
             RandomAI();
+            
         }
         function mute() {
             tieVAR.pause()
@@ -171,6 +299,7 @@
             winVAR.pause()
             winVAR.currentTime = 0;
             musicVAR.play()
+            startVAR.innerHTML = "<p>"
         }
 
         function RandomAI() {
@@ -189,16 +318,63 @@
             resultVAR.textContent = "You tied!";
             score.textContent = "Your score = meh"
             tieVAR.play()
+            player2FUNC()
         }
         function lose() {
             resultVAR.textContent = "You lose!";
             score.textContent = "Your score = gae"
             loseVAR.play()
+            player2FUNC()
+            loseheartPlayer()
         }
         function win() {
             resultVAR.textContent = "You win!";
             score.textContent = "Your score = wtf cheater"
             winVAR.play()
+            player2FUNC()
+            loseheartComputer()
+        }
+        function player2FUNC() {
+            if(player2 == 0) {
+                computerVAR.innerHTML = "<img src='picture/0.png' class='middleimg'>"
+                }
+                else if(player2 == 1) {
+                    computerVAR.innerHTML = "<img src='picture/1.png' class='middleimg'>"
+                    }
+                    else
+                    computerVAR.innerHTML = "<img src='picture/2.png' class='middleimg'>"
+        }
+        function loseheartPlayer() {
+            HPpVAR = HPpVAR - 1;
+            if(HPpVAR == 2) {
+                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+            } else if(HPpVAR == 1) {
+                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'>"
+            } else if(HPpVAR == 0) {
+            HPplayerVAR.innerHTML = "<p>"
+            musicVAR.pause();
+            losemusicVAR.play();
+            contentVAR.innerHTML = "<div class='endinglose'><input type='image' id='game' class='afro' src='picture/afro.png' onclick='virusFUNC()'><p class='hugefont'>YOU LOST!</p><p class='smallfont'>You have been infected by Trojan:GAYVirus.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>This tech support will help you!</p></div>"
+            }
+        }
+        function loseheartComputer() {
+            HPcVAR = HPcVAR - 1;
+            if(HPcVAR == 2) {
+                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+            } else if(HPcVAR == 1) {
+                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'>"
+            } else if(HPcVAR == 0) {
+            HPcomputerVAR.innerHTML = "<p>"
+            musicVAR.pause();
+            winmusicVAR.play();
+            contentVAR.innerHTML = "<div class='endingwin'><input type='image' id='game' class='afro' src='picture/bryandead2.png' onclick='hitFUNC()'><p class='hugefont'>Bryan is die :P!</p><p class='smallfont'>You have been blessed by UwU:AntigayAura.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>Well celebrate of course! OwO</p></div>"
+            }
+        }
+        function virusFUNC() {
+            virusVAR.play();
+        }
+        function hitFUNC() {
+            hitVAR.play();
         }
     </script>
 </body>
