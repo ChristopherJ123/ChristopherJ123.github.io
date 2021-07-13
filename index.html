@@ -12,7 +12,6 @@
         .kiri {
             display: flex;
             flex: 1;
-            position: relative;
             align-items: center;
             justify-content: center;
             flex-direction: column;
@@ -28,23 +27,22 @@
             display: flex;
             position: relative;
             justify-content: center;
-            margin-top: 50px;
+            margin-top: 5vh;
             align-items: center;
         }
         .title p {
             padding: 0 15px;
         }
         .middleimg {
-            width: 80px;
-            height: 80px;
+            width: 6vw;
+            height: 10vh;
         }
         .score {
             display: flex;
         }
         .bryanBOSS {
-            width: 275px;
-            height: 275px;
-            background: url(picture/bryan.png) no-repeat;
+            width: 20vw;
+            height: 40vh;
             position: absolute
         }
         
@@ -54,17 +52,15 @@
             align-items: flex-start;
             justify-content: space-between;
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-size: 20px;
+            font-size: 3vmax;
             margin-top: 20px;
-            max-width: 1280px;
-            max-height: 720px;
 
         }
         .header {
             display: flex;
             flex-direction: row;
             align-items: center;
-            height: 70px;
+            height: 10vh;
             background-color: brown;
         }
         .headerkiri {
@@ -80,8 +76,8 @@
             align-items: center;
         }
         .header img {
-            width: 40px;
-            height: 40px;
+            width: 3vw;
+            height: 4vh;
         }
         .middle {
             display: flex;
@@ -90,12 +86,12 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            margin-top: 200px;
-            width: 100px;
+            margin-top: 20vh;
         }
         .menu {
             width: 30vw;
             height: 30vh;
+            position: relative;
         }
         #game {
             transition: ease-in-out 0.2s;
@@ -115,10 +111,8 @@
             opacity: 0.7;
         }
         .start {
-            width: 100%;
-            height: 100%;
-
-
+            width: 20vw;
+            height: 20vh;
         }
         .endinglose {
             display: flex;
@@ -155,7 +149,7 @@
             font-family: 'Courier New', monospace;
         }
         #bounce{
-        animation:bounce 4s linear infinite;
+            animation:bounce 4s linear infinite;
         }
         @keyframes bounce{
             0%{
@@ -178,7 +172,24 @@
             transform:translate(0vw,20vh);
             }
         }
-
+        #heart {
+            transition: 1s;
+            animation:blink 0.5s linear infinite;
+        }
+        @keyframes blink{
+            0% {
+            opacity: 0;
+            }
+            49.9% {
+            opacity: 0;
+            }
+            50% {
+            opacity: 1;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
 
     </style>
 </head>
@@ -197,10 +208,14 @@
                 <img src="picture/heart.png" alt="heart">
                 <img src="picture/heart.png" alt="heart">
                 <img src="picture/heart.png" alt="heart">
+                <img src="picture/heart.png" alt="heart">
+                <img src="picture/heart.png" alt="heart">
             </div>
         </div>
         <div class="headerkanan">
             <div id="HPcomputerID">
+                <img src="picture/heart.png" alt="heart">
+                <img src="picture/heart.png" alt="heart">
                 <img src="picture/heart.png" alt="heart">
                 <img src="picture/heart.png" alt="heart">
                 <img src="picture/heart.png" alt="heart">
@@ -230,6 +245,7 @@
         </div>
         <div class="kanan">
             <div id="bounce" class="bryanBOSS"></div>
+            <img src="picture/bryan.png" class="bryanBOSS" id="bounce">
             <p>Big man lvl 99</p>
         </div>
     </div>
@@ -247,6 +263,7 @@
                 calculation();
             })
         });
+        // Variables
         var winVAR = document.getElementById("winsound")
         var tieVAR = document.getElementById("tiesound")
         var loseVAR = document.getElementById("losesound")
@@ -261,11 +278,13 @@
         var player2 = 0
         var HPplayerVAR = document.getElementById("HPplayerID")
         var HPcomputerVAR = document.getElementById("HPcomputerID")
-        var HPpVAR = 3
-        var HPcVAR = 3
+        var HPpVAR = 5
+        var HPcVAR = 5
         var resultVAR = document.getElementById("result");
         var humanVAR = document.getElementById("human")
         var computerVAR = document.getElementById("computer")
+
+        
         function engine1() {
             player1 = 0
             process()
@@ -344,32 +363,108 @@
                     else
                     computerVAR.innerHTML = "<img src='picture/2.png' class='middleimg'>"
         }
+        // HEALTH POINT BLINKING PLAYER
         function loseheartPlayer() {
             HPpVAR = HPpVAR - 1;
-            if(HPpVAR == 2) {
-                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+            if(HPpVAR == 4) {
+                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+                setTimeout(fourHPPlayer, 1000)
+
+            }else if(HPpVAR == 3) {
+                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+                setTimeout(threeHPPlayer, 1000)
+
+            } else if(HPpVAR == 2) {
+                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+                setTimeout(twoHPPlayer, 1000)
+
             } else if(HPpVAR == 1) {
-                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'>"
+                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+                setTimeout(oneHPPlayer, 1000)
+
             } else if(HPpVAR == 0) {
             HPplayerVAR.innerHTML = "<p>"
+
+                
+
+        // LOSE SCREEN
             musicVAR.pause();
             losemusicVAR.play();
             contentVAR.innerHTML = "<div class='endinglose'><input type='image' id='game' class='afro' src='picture/afro.png' onclick='virusFUNC()'><p class='hugefont'>YOU LOST!</p><p class='smallfont'>You have been infected by Trojan:GAYVirus.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>This tech support will help you!</p></div><input type='image' id='game' class='menu' src='picture/retry.png' onclick='retryFUNC()'>"
             }
         }
+        // HEATH POINT BLINKING COMPUTER
         function loseheartComputer() {
             HPcVAR = HPcVAR - 1;
-            if(HPcVAR == 2) {
-                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+            if(HPcVAR == 4) {
+                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+                setTimeout(fourHPComputer, 1000)
+
+            }else if(HPcVAR == 3) {
+                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+                setTimeout(threeHPComputer, 1000)
+
+            } else if(HPcVAR == 2) {
+                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+                setTimeout(twoHPComputer, 1000)
+
             } else if(HPcVAR == 1) {
-                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'>"
+                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+                setTimeout(oneHPComputer, 1000)
+
             } else if(HPcVAR == 0) {
             HPcomputerVAR.innerHTML = "<p>"
+
+        // WIN SCREEN
             musicVAR.pause();
             winmusicVAR.play();
             contentVAR.innerHTML = "<div class='endingwin'><input type='image' id='game' class='afro' src='picture/bryandead2.png' onclick='hitFUNC()'><p class='hugefont'>Bryan is die :P!</p><p class='smallfont'>You have been blessed by UwU:AntigayAura.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>Well celebrate of course! OwO</p></div><input type='image' id='game' class='menu' src='picture/retry.png' onclick='retryFUNC()'>"
             }
         }
+        // HEALTH POINT DISPLAY Player
+            function fourHPPlayer () {
+            if(HPpVAR == 4) {
+                HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+                }
+            }
+            function threeHPPlayer () {
+            if(HPpVAR == 3) {
+            HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+                }
+            }
+            function twoHPPlayer () {
+            if(HPpVAR == 2) {
+            HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+                }
+            }
+            function oneHPPlayer () {
+            if(HPpVAR == 1) {
+            HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'>"
+                }
+            }
+
+        // HEALTH POINT DISPLAY Computer
+        function fourHPComputer () {
+            if(HPcVAR == 4) {
+                HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+                }
+            }
+            function threeHPComputer () {
+            if(HPcVAR == 3) {
+            HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+                }
+            }
+            function twoHPComputer () {
+            if(HPcVAR == 2) {
+            HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+                }
+            }
+            function oneHPComputer () {
+            if(HPcVAR == 1) {
+            HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'>"
+                }
+            }
+
         function virusFUNC() {
             virusVAR.play();
         }
