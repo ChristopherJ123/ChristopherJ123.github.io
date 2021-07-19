@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+}
+.kiri {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.kanan {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.title {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 5vh;
+    align-items: center;
+}
+.title p {
+    padding: 0 15px;
+}
+.middleimg {
+    width: 6vw;
+    height: 10vh;
+}
+.score {
+    display: flex;
+}
+.bryanBOSS {
+    width: 20vw;
+    height: 40vh;
+    position: absolute
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3vmax;
+    margin-top: 20px;
+
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 10vh;
+    background-color: brown;
+}
+.headerkiri {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+.headerkanan {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+.header img {
+    width: 3vw;
+    height: 4vh;
+}
+.middle {
+    display: flex;
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20vh;
+}
+.menu {
+    width: 30vw;
+    height: 30vh;
+    position: relative;
+}
+#game {
+    transition: ease-in-out 0.2s;
+}
+#game:hover {
+    transform: scale(0.9);
+}
+#game:active {
+    transform: scale(0.7);
+    opacity: 0.7;
+}
+#game1:hover {
+    transform: scale(0.9);
+}
+#game1:active {
+    transform: scale(0.7);
+    opacity: 0.7;
+}
+.start {
+    width: 20vw;
+    height: 20vh;
+}
+.endinglose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background-color: red;
+    padding-bottom: 10vmax;
+}
+.endingwin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    background-color: greenyellow;
+    padding-bottom: 10vmax;
+}
+.afro {
+    width: 30vw;
+    height: 50vh;
+}
+.hugefont {
+    font-size: 5vmax;
+}
+.bigfont {
+    font-size: 3vmax;
+}
+.smallfont {
+    font-size: 2vmax;
+    font-family: 'Courier New', monospace;
+}
+#bounce{
+    animation:bounce 4s linear infinite;
+}
+@keyframes bounce{
+    0%{
+    transform:translate(0vw,20vh);
+
+    }
+    25%{
+    transform:translate(-5vw,25vh);
+
+    }
+    50%{
+    transform:translate(0vw,30vh);
+    
+    }
+    75%{
+    transform:translate(5vw,25vh);
+
+    }
+    100%{
+    transform:translate(0vw,20vh);
+    }
+}
+#heart {
+    transition: 1s;
+    animation:blink 0.5s linear infinite;
+}
+@keyframes blink{
+    0% {
+    opacity: 0;
+    }
+    49.9% {
+    opacity: 0;
+    }
+    50% {
+    opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/* END OF PART 1 */
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    background-color:forestgreen;
+    height: 90vh;
+}
+.content2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+
+}
+.top2 {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.middle2 {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.bottom2 {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.button2 {
+    display: flex;
+    border: crimson;
+    border-radius: 10px;
+    width: 9vw;
+    margin: 12px;
+}
+.image2 {
+    display: flex;
+    border-radius: 10px;
+    width: 9vw;
+    margin: 12px;
+}

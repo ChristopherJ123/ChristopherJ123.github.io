@@ -4,9 +4,415 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Just defeat this dude already</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <p>Hello World</p>
-</body>
+    <div id="endscreenID">
+        <audio id="losesound" src="/sound/lose.mp3"></audio>
+        <audio id="tiesound" src="/sound/tie.mp3"></audio>
+        <audio id="winsound" src="/sound/win.mp3"></audio>
+        <audio id="virus" src="/sound/virus.mp3"></audio>
+        <audio id="hit" src="/sound/hit.mp3"></audio>
+        <audio id="music" src="/sound/music.mp3"></audio>
+        <audio id="losemusicID" src="/sound/losemusic.mp3"></audio>
+        <audio id="winmusicID" src="/sound/winmusic.mp3"></audio>    
+        <div class="header">
+            <div class="headerkiri">
+                <div id="HPplayerID">
+                    <img src="/picture/heart.png" alt="heart">
+                    <img src="/picture/heart.png" alt="heart">
+                    <img src="/picture/heart.png" alt="heart">
+                    <img src="/picture/heart.png" alt="heart">
+                    <img src="/picture/heart.png" alt="heart">
+                </div>
+            </div>
+            <div class="headerkanan">
+                <div id="HPcomputerID">
+                    <img src="/picture/heart.png" alt="heart">
+                    <img src="/picture/heart.png" alt="heart">
+                    <img src="/picture/heart.png" alt="heart">
+                    <img src="/picture/heart.png" alt="heart">
+                    <img src="/picture/heart.png" alt="heart">
+                </div>
+            </div>
+        </div>
+    <div class="container2">
+        <div class="content2">
+            <div class="top2">
+                <div id="buttonID1">
+                    <input type="image" class="button2" id="effect" onclick="engine1()" src="image/button.png">
+                </div>
+                <div id="buttonID2">
+                    <input type="image" class="button2" id="effect" onclick="engine2()" src="image/button.png">
+                </div>
+                <div id="buttonID3">
+                    <input type="image" class="button2" id="effect" onclick="engine3()" src="image/button.png">
+                </div>
+            </div>
+            <div class="middle2">
+                <div id="buttonID4">
+                    <input type="image" class="button2" id="effect" onclick="engine4()" src="image/button.png">
+                </div>
+                <div id="buttonID5">
+                    <input type="image" class="button2" id="effect" onclick="engine5()" src="image/button.png">
+                </div>
+                <div id="buttonID6">
+                    <input type="image" class="button2" id="effect" onclick="engine6()" src="image/button.png">
+                </div>
+            </div>
+            <div class="bottom2">
+                <div id="buttonID7">
+                    <input type="image" class="button2" id="effect" onclick="engine7()" src="image/button.png">
+                </div>
+                <div id="buttonID8">
+                    <input type="image" class="button2" id="effect" onclick="engine8()" src="image/button.png">
+                </div>
+                <div id="buttonID9">
+                    <input type="image" class="button2" id="effect" onclick="engine9()" src="image/button.png">
+                </div>
+            </div>
+        </div>
+        <div class="title">
+            <div id="human">
+                <img src="/picture/bryan.png" alt="" class="middleimg"></div>
+            <p id="result">Let the fight begin!</p>
+            <div id="computer">
+                <img src="/picture/bryan.png" alt="" class="middleimg"></div>
+        </div>
+        <div class="score"><p id="score"></p>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+    </div>
+<script>
+var winVAR = document.getElementById("winsound")
+var tieVAR = document.getElementById("tiesound")
+var loseVAR = document.getElementById("losesound")
+var virusVAR = document.getElementById("virus")
+var hitVAR = document.getElementById("hit")
+var musicVAR = document.getElementById("music")
+var losemusicVAR = document.getElementById("losemusicID")
+var winmusicVAR = document.getElementById("winmusicID")
+var startVAR = document.getElementById("game1")
+var contentVAR = document.getElementById("contentID")
+var player1 = 0
+var player2 = 0
+var HPplayerVAR = document.getElementById("HPplayerID")
+var HPcomputerVAR = document.getElementById("HPcomputerID")
+var HPpVAR = 5
+var HPcVAR = 5
+var resultVAR = document.getElementById("result");
+var humanVAR = document.getElementById("human")
+var computerVAR = document.getElementById("computer")
+
+var box1 = 0
+var box2 = 0
+var box3 = 0
+var box4 = 0
+var box5 = 0
+var box6 = 0
+var box7 = 0
+var box8 = 0
+var box9 = 0
+var ai = 0
+
+var box1AI = 0
+var box2AI = 0
+var box3AI = 0
+var box4AI = 0
+var box5AI = 0
+var box6AI = 0
+var box7AI = 0
+var box8AI = 0
+var box9AI = 0
+
+var box1ID = document.getElementById("buttonID1")
+var box2ID = document.getElementById("buttonID2")
+var box3ID = document.getElementById("buttonID3")
+var box4ID = document.getElementById("buttonID4")
+var box5ID = document.getElementById("buttonID5")
+var box6ID = document.getElementById("buttonID6")
+var box7ID = document.getElementById("buttonID7")
+var box8ID = document.getElementById("buttonID8")
+var box9ID = document.getElementById("buttonID9")
+var endscreen = document.getElementById("endscreenID")
+
+function engine1() {
+    box1 = 1
+    box1ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function engine2() {
+    box2 = 1
+    box2ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function engine3() {
+    box3 = 1
+    box3ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function engine4() {
+    box4 = 1
+    box4ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function engine5() {
+    box5 = 1
+    box5ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function engine6() {
+    box6 = 1
+    box6ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function engine7() {
+    box7 = 1
+    box7ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function engine8() {
+    box8 = 1
+    box8ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function engine9() {
+    box9 = 1
+    box9ID.innerHTML = "<img src='image/x.png' class='image2'>";
+    kizunaai()
+}
+function kizunaai() {
+    ai = Math.floor(Math.random() * 9);
+    bot();
+    win();
+    }
+
+function bot() {
+    if(ai == 0) {
+        if(box1 == 0 && box1AI == 0) {
+            box1ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box1AI = 1
+        } else kizunaai()
+    }
+    else if(ai == 1) {
+        if(box2 == 0 && box2AI == 0) {
+            box2ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box2AI = 1
+        } else kizunaai()
+    }
+    else if(ai == 2) {
+        if(box3 == 0&& box3AI == 0) {
+            box3ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box3AI = 1
+        } else kizunaai()
+    }
+    else if(ai == 3) {
+        if(box4 == 0 && box4AI == 0) {
+            box4ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box4AI = 1
+        } else kizunaai()
+    }
+    else if(ai == 4) {
+        if(box5 == 0 && box5AI == 0) {
+            box5ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box5AI = 1
+        } else kizunaai()
+    }
+    else if(ai == 5) {
+        if(box6 == 0 && box6AI == 0) {
+            box6ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box6AI = 1
+        } else kizunaai()
+    }
+    else if(ai == 6) {
+        if(box7 == 0 && box7AI == 0) {
+            box7ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box7AI = 1
+        } else kizunaai()
+    }
+    else if(ai == 7) {
+        if(box8 == 0 && box8AI == 0) {
+            box8ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box8AI = 1
+        } else kizunaai()
+    }
+    else if(ai == 8) {
+        if(box9 == 0 && box9AI == 0) {
+            box9ID.innerHTML = "<img src='image/o.png' class='image2'>"
+            box9AI = 1
+        } else kizunaai()
+    }
+}
+    function win() {
+            if(box1 == 1 && box2 == 1 && box3 == 1) {
+                win2()
+            } else if(box4 == 1 && box5 == 1 && box6 == 1) {
+                win2()
+            } else if(box7 == 1 && box8 == 1 && box9 == 1) {
+                win2()
+            } else if(box1 == 1 && box4 == 1 && box7 == 1) {
+                win2()
+            } else if(box2 == 1 && box5 == 1 && box8 == 1) {
+                win2()
+            } else if(box3 == 1 && box6 == 1 && box9 == 1) {
+                win2()
+            } else if(box1 == 1 && box5 == 1 && box9 == 1) {
+                win2()
+            } else if(box3 == 1 && box5 == 1 && box7 == 1) {
+                win2()
+            } else if(box1AI == 1 && (box2AI == 1 && box3AI == 1)) {
+                lose2()
+            } else if(box4AI == 1 && box5AI == 1 && box6AI == 1) {
+                lose2()
+            } else if(box7AI == 1 && box8AI == 1 && box9AI == 1) {
+                lose2()
+            } else if(box1AI == 1 && box4AI == 1 && box7AI == 1) {
+                lose2()
+            } else if(box2AI == 1 && box5AI == 1 && box8AI == 1) {
+                lose2()
+            } else if(box3AI == 1 && box6AI == 1 && box9AI == 1) {
+                lose2()
+            } else if(box1AI == 1 && box5AI == 1 && box9AI == 1) {
+                lose2()
+            } else if(box3AI == 1 && box5AI == 1 && box7AI == 1) {
+                lose2()
+            }
+        }
+
+        //////////////////////////////////////////////////////
+
+        function tie2() {
+            resultVAR.textContent = "You tied!";
+            score.textContent = "Your score = meh"
+            tieVAR.play()
+        }
+        function lose2() {
+            resultVAR.textContent = "You lose!";
+            score.textContent = "Your score = gae"
+            loseVAR.play()
+            loseheartPlayer()
+        }
+        function win2() {
+            resultVAR.textContent = "You win!";
+            score.textContent = "Your score = wtf cheater"
+            winVAR.play()
+            loseheartComputer()
+        }
+
+// HEALTH POINT BLINKING PLAYER
+function loseheartPlayer() {
+    HPpVAR = HPpVAR - 1;
+    if(HPpVAR == 4) {
+        HPplayerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(fourHPPlayer, 1000)
+
+    }else if(HPpVAR == 3) {
+        HPplayerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(threeHPPlayer, 1000)
+
+    } else if(HPpVAR == 2) {
+        HPplayerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(twoHPPlayer, 1000)
+
+    } else if(HPpVAR == 1) {
+        HPplayerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(oneHPPlayer, 1000)
+
+    } else if(HPpVAR == 0) {
+    HPplayerVAR.innerHTML = "<p>"
+
+        
+
+// LOSE SCREEN
+    musicVAR.pause();
+    losemusicVAR.play();
+    contentVAR.innerHTML = "<div class='endinglose'><input type='image' id='game' class='afro' src='/picture/afro.png' onclick='virusFUNC()'><p class='hugefont'>YOU LOST!</p><p class='smallfont'>You have been infected by Trojan:GAYVirus.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>This tech support will help you!</p></div><input type='image' id='game' class='menu' src='/picture/retry.png' onclick='retryFUNC()'>"
+    }
+}
+// HEATH POINT BLINKING COMPUTER
+function loseheartComputer() {
+    HPcVAR = HPcVAR - 1;
+    if(HPcVAR == 4) {
+        HPcomputerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(fourHPComputer, 1000)
+
+    }else if(HPcVAR == 3) {
+        HPcomputerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(threeHPComputer, 1000)
+
+    } else if(HPcVAR == 2) {
+        HPcomputerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(twoHPComputer, 1000)
+
+    } else if(HPcVAR == 1) {
+        HPcomputerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(oneHPComputer, 1000)
+
+    } else if(HPcVAR == 0) {
+    HPcomputerVAR.innerHTML = "<p>"
+
+// WIN SCREEN
+    musicVAR.pause();
+    winmusicVAR.play();
+    contentVAR.innerHTML = "<div class='endingwin'><a href='TicTacToe/'><input type='image' id='game' class='afro' src='/picture/bryandead2.png' onclick='hitFUNC()'></a><p class='hugefont'>Bryan is die :P!</p><p class='smallfont'>You have been blessed by UwU:AntigayAura.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>Well celebrate of course! OwO</p></div><input type='image' id='game' class='menu' src='/picture/retry.png' onclick='retryFUNC()'>"
+    }
+}
+// HEALTH POINT DISPLAY Player
+    function fourHPPlayer () {
+    if(HPpVAR == 4) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'>"
+        }
+    }
+    function threeHPPlayer () {
+    if(HPpVAR == 3) {
+    HPplayerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'>"
+        }
+    }
+    function twoHPPlayer () {
+    if(HPpVAR == 2) {
+    HPplayerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'>"
+        }
+    }
+    function oneHPPlayer () {
+    if(HPpVAR == 1) {
+    HPplayerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'>"
+        }
+    }
+
+// HEALTH POINT DISPLAY Computer
+function fourHPComputer () {
+    if(HPcVAR == 4) {
+        HPcomputerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'>"
+        }
+    }
+    function threeHPComputer () {
+    if(HPcVAR == 3) {
+    HPcomputerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'>"
+        }
+    }
+    function twoHPComputer () {
+    if(HPcVAR == 2) {
+    HPcomputerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'> <img src='/picture/heart.png' alt='heart'>"
+        }
+    }
+    function oneHPComputer () {
+    if(HPcVAR == 1) {
+    HPcomputerVAR.innerHTML = "<img src='/picture/heart.png' alt='heart'>"
+        }
+    }
+
+function virusFUNC() {
+    virusVAR.play();
+}
+function hitFUNC() {
+    hitVAR.play();
+}
+function retryFUNC() {
+    location.reload();
+    return false;
+}
+</script>
 </html>
