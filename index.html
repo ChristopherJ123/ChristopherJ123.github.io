@@ -16,6 +16,9 @@
     <audio id="music" src="sound/music.mp3"></audio>
     <audio id="losemusicID" src="sound/losemusic.mp3"></audio>
     <audio id="winmusicID" src="sound/winmusic.mp3"></audio>    
+    <audio id="dhuarID" src="sound/dhuar.mp3"></audio>   
+    <audio id="gaeID" src="sound/gae.mp3"></audio>   
+    <audio id="healID" src="sound/power.mp3"></audio>   
     <div class="header">
         <div class="headerkiri">
             <div id="HPplayerID">
@@ -38,11 +41,12 @@
     </div>
     <div id="contentID">
     <div class="content">
-        <div class="kiri">
-            <input id="game" class="menu" type="image" src="picture/0.png" onclick="engine1()">
-            <input id="game" class="menu" type="image" src="picture/1.png" onclick="engine2()">
-            <input id="game" class="menu" type="image" src="picture/2.png" onclick="engine3()">
+        <div class="kiri" id="kiriID">
+            <div id="bounce" class="bryanBOSS"></div>
+            <p>Big man lvl 99</p>
+            <img src="picture/raka.png" class="bryanBOSS" id="bounce2">
         </div>
+        <div class="kiri2" id="kiri2ID"></div>
         <div class="middle">
             <div id="game1">
                 <input type="image" src="picture/start.png" onclick="mute()" class="start">
@@ -57,6 +61,7 @@
             <div class="score"><p id="score"></p>
             </div>
         </div>
+        <div class="kanan2" id="kanan2ID"></div>
         <div class="kanan">
             <div id="bounce" class="bryanBOSS"></div>
             <img src="picture/bryan.png" class="bryanBOSS" id="bounce">

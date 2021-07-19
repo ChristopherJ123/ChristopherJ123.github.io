@@ -3,16 +3,30 @@
 }
 .kiri {
     display: flex;
-    flex: 1;
+    flex: 3;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.kiri2 {
+    display: flex;
+    flex: 1.5;
+    align-items: center;
+    justify-content: flex-end;
     flex-direction: column;
 }
 .kanan {
     display: flex;
-    flex: 1;
+    flex: 3;
     align-items: center;
     justify-content: flex-start;
+    flex-direction: column;
+}
+.kanan2 {
+    display: flex;
+    flex: 1.5;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 .title {
@@ -41,7 +55,7 @@
 .content {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: normal;
     justify-content: space-between;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 3vmax;
@@ -130,6 +144,34 @@
     width: 30vw;
     height: 50vh;
 }
+.gun {
+    width: 15vw;
+    height: 15vh;
+    animation:gun 1s linear;
+}
+@keyframes gun {
+    0%{
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(90deg);
+    }
+}
+.heal {
+    width: 5vw;
+    height: 5vw;
+    animation:heal 3s linear ;
+}
+@keyframes heal {
+    0%{
+        transform: translate(0vw, 0vh);
+    }
+    100%{
+        transform: translate(0vw, -300vh);
+    }
+}
 .hugefont {
     font-size: 5vmax;
 }
@@ -162,6 +204,30 @@
     }
     100%{
     transform:translate(0vw,20vh);
+    }
+}
+#bounce2{
+    animation:bounce2 4s linear infinite;
+}
+@keyframes bounce2{
+    0%{
+    transform:translate(5vw,20vh);
+
+    }
+    25%{
+    transform:translate(0vw,25vh);
+
+    }
+    50%{
+    transform:translate(5vw,30vh);
+    
+    }
+    75%{
+    transform:translate(10vw,25vh);
+
+    }
+    100%{
+    transform:translate(5vw,20vh);
     }
 }
 #heart {

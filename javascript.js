@@ -23,6 +23,7 @@ var startVAR = document.getElementById("game1")
 var contentVAR = document.getElementById("contentID")
 var player1 = 0
 var player2 = 0
+var gunVAR = 0
 var HPplayerVAR = document.getElementById("HPplayerID")
 var HPcomputerVAR = document.getElementById("HPcomputerID")
 var HPpVAR = 5
@@ -66,10 +67,13 @@ function mute() {
     winVAR.currentTime = 0;
     musicVAR.play()
     startVAR.innerHTML = "<p>"
+    kiriVAR.innerHTML = "<input id='game' class='menu' type='image' src='picture/0.png' onclick='engine1()'> <input id='game' class='menu' type='image' src='picture/1.png' onclick='engine2()'> <input id='game' class='menu' type='image' src='picture/2.png' onclick='engine3()'>"
 }
 
 function RandomAI() {
     player2 = Math.floor(Math.random() * 3);
+    gunVAR = Math.floor(Math.random() * 5);
+    playerhealVAR = Math.floor(Math.random() * 2);
 }
 function calculation() {
     if(player1 == 0 && player2 == 0 || player1 == 1 && player2 == 1 || player1 == 2 && player2 == 2) {
@@ -87,18 +91,22 @@ function tie() {
     player2FUNC()
 }
 function lose() {
+    HPpVAR = HPpVAR - 1;
     resultVAR.textContent = "You lose!";
     score.textContent = "Your score = gae"
     loseVAR.play()
     player2FUNC()
     loseheartPlayer()
+    playerhealFUNC()
 }
 function win() {
+    HPcVAR = HPcVAR - 1;
     resultVAR.textContent = "You win!";
     score.textContent = "Your score = wtf cheater"
     winVAR.play()
     player2FUNC()
     loseheartComputer()
+    gunFUNC()
 }
 function player2FUNC() {
     if(player2 == 0) {
@@ -112,22 +120,37 @@ function player2FUNC() {
 }
 // HEALTH POINT BLINKING PLAYER
 function loseheartPlayer() {
-    HPpVAR = HPpVAR - 1;
-    if(HPpVAR == 4) {
+    if(HPpVAR == 8) {
         HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        setTimeout(fourHPPlayer, 1000)
+        setTimeout(HPplayer, 1000)
 
-    }else if(HPpVAR == 3) {
+    } else if(HPpVAR == 7) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPplayer, 1000)
+
+    } else if(HPpVAR == 6) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPplayer, 1000)
+
+    } else if(HPpVAR == 5) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPplayer, 1000)
+    
+    } else if(HPpVAR == 4) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPplayer, 1000)
+
+    } else if(HPpVAR == 3) {
         HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        setTimeout(threeHPPlayer, 1000)
+        setTimeout(HPplayer, 1000)
 
     } else if(HPpVAR == 2) {
         HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        setTimeout(twoHPPlayer, 1000)
+        setTimeout(HPplayer, 1000)
 
     } else if(HPpVAR == 1) {
         HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        setTimeout(oneHPPlayer, 1000)
+        setTimeout(HPplayer, 1000)
 
     } else if(HPpVAR == 0) {
     HPplayerVAR.innerHTML = "<p>"
@@ -142,22 +165,37 @@ function loseheartPlayer() {
 }
 // HEATH POINT BLINKING COMPUTER
 function loseheartComputer() {
-    HPcVAR = HPcVAR - 1;
-    if(HPcVAR == 4) {
-        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        setTimeout(fourHPComputer, 1000)
+    if(HPcVAR == 8) {
+        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPcomputer, 1000)
 
-    }else if(HPcVAR == 3) {
+    } else if(HPcVAR == 7) {
+        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPcomputer, 1000)
+
+    } else if(HPcVAR == 6) {
+        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPcomputer, 1000)
+
+    } else if(HPcVAR == 5) {
+        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPcomputer, 1000)
+
+    } else if(HPcVAR == 4) {
+        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        setTimeout(HPcomputer, 1000)
+
+    } else if(HPcVAR == 3) {
         HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        setTimeout(threeHPComputer, 1000)
+        setTimeout(HPcomputer, 1000)
 
     } else if(HPcVAR == 2) {
         HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        setTimeout(twoHPComputer, 1000)
+        setTimeout(HPcomputer, 1000)
 
     } else if(HPcVAR == 1) {
         HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        setTimeout(oneHPComputer, 1000)
+        setTimeout(HPcomputer, 1000)
 
     } else if(HPcVAR == 0) {
     HPcomputerVAR.innerHTML = "<p>"
@@ -169,45 +207,57 @@ function loseheartComputer() {
     }
 }
 // HEALTH POINT DISPLAY Player
-    function fourHPPlayer () {
-    if(HPpVAR == 4) {
+    function HPplayer () {
+    if(HPpVAR == 8) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+        }
+    else if(HPpVAR == 7) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+        }
+    else if(HPpVAR == 6) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+        }       
+    else if(HPpVAR == 5) {
+        HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+        }
+    else if(HPpVAR == 4) {
         HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
         }
-    }
-    function threeHPPlayer () {
-    if(HPpVAR == 3) {
+    else if(HPpVAR == 3) {
     HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
         }
-    }
-    function twoHPPlayer () {
-    if(HPpVAR == 2) {
+    else if(HPpVAR == 2) {
     HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
         }
-    }
-    function oneHPPlayer () {
-    if(HPpVAR == 1) {
+    else if(HPpVAR == 1) {
     HPplayerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'>"
         }
     }
 
 // HEALTH POINT DISPLAY Computer
-function fourHPComputer () {
-    if(HPcVAR == 4) {
-        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+function HPcomputer () {
+    if(HPcVAR == 8) {
+        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
         }
-    }
-    function threeHPComputer () {
-    if(HPcVAR == 3) {
+    else if(HPcVAR == 7) {
+        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+        }
+    else if(HPcVAR == 6) {
+        HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+        }
+    else if(HPcVAR == 5) {
+    HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+        }
+    else if(HPcVAR == 4) {
+    HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
+        }
+    else if(HPcVAR == 3) {
     HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
         }
-    }
-    function twoHPComputer () {
-    if(HPcVAR == 2) {
+    else if(HPcVAR == 2) {
     HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart'>"
         }
-    }
-    function oneHPComputer () {
-    if(HPcVAR == 1) {
+    else if(HPcVAR == 1) {
     HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'>"
         }
     }
@@ -221,4 +271,61 @@ function hitFUNC() {
 function retryFUNC() {
     location.reload();
     return false;
+}
+
+// UPDATE v4.0
+
+var kanan2VAR = document.getElementById("kanan2ID")
+var kiri2VAR = document.getElementById("kiri2ID")
+var dhuarVAR = document.getElementById("dhuarID")
+var gaeVAR = document.getElementById("gaeID")
+var healVAR = document.getElementById("healID")
+var healVAR2 = 0
+var nullVAR = 0
+var kiriVAR = document.getElementById("kiriID")
+
+//BRYAN POWERS
+
+function gunFUNC() {
+    if(gunVAR == 0 || gunVAR == 2) {
+        HPpVAR = HPpVAR - 1
+        kanan2VAR.innerHTML = "<img class='gun' src='picture/gun.png'>"
+        dhuarVAR.play()
+        loseheartPlayer()   
+        setTimeout(clearkananFUNC, 1000)
+
+    } else if(gunVAR == 1) {
+        HPcVAR = HPcVAR + 2
+        kanan2VAR.innerHTML = "<img class='gun' src='picture/bryan.png'>"
+        gaeVAR.play()
+        healVAR.play()
+        HPcomputer()
+        setTimeout(clearkananFUNC, 1000)
+    }
+}
+function clearkananFUNC() {
+    kanan2VAR.innerHTML = "<p></p>"
+}
+
+//PLAYER POWERS
+
+function playerhealFUNC() {
+    if(healVAR2 == 0) {
+        healVAR2 = 1
+        kiri2VAR.innerHTML = "<input type='image' class='heal' src='picture/heal.png' onmousedown='healplayerFUNC()'>"
+        healVAR.play()
+        setTimeout(clearkiriFUNC, 2000)
+    }
+}
+function healplayerFUNC() {
+    HPpVAR = HPpVAR + 2
+    healVAR.play()
+    kiri2VAR.innerHTML = "<p></p>"
+    HPplayer() 
+}
+function clearkiriFUNC() {
+    healVAR2 = 0
+    if(healVAR2 == 0) {
+    kiri2VAR.innerHTML = "<p></p>"
+    }
 }
