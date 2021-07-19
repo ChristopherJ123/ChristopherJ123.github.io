@@ -26,7 +26,7 @@
     display: flex;
     flex: 1.5;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
 }
 .title {
@@ -59,7 +59,8 @@
     justify-content: space-between;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 3vmax;
-    margin-top: 20px;
+    background-color: gray;
+    height: 90vh;
 
 }
 .header {
@@ -67,7 +68,7 @@
     flex-direction: row;
     align-items: center;
     height: 10vh;
-    background-color: brown;
+    background-color: maroon;
 }
 .headerkiri {
     display: flex;
@@ -138,7 +139,7 @@
     text-align: center;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     background-color: greenyellow;
-    padding-bottom: 10vmax;
+    margin-bottom: 10vmax;
 }
 .afro {
     width: 30vw;
@@ -147,6 +148,7 @@
 .gun {
     width: 15vw;
     height: 15vh;
+    margin-bottom: 50vh;
     animation:gun 1s linear;
 }
 @keyframes gun {

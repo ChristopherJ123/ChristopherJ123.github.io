@@ -71,10 +71,13 @@ function process() {
     calculation()
 }
 
+// MATH RANDOM
+
 function RandomAI() {
     player2 = Math.floor(Math.random() * 3);
     gunVAR = Math.floor(Math.random() * 5);
-    playerhealVAR = Math.floor(Math.random() * 2);
+    playerhealVAR = Math.floor(Math.random() * 3);
+    healposVAR = Math.floor(Math.random() * 2);
 }
 function calculation() {
     if(player1 == 0 && player2 == 0 || player1 == 1 && player2 == 1 || player1 == 2 && player2 == 2) {
@@ -90,6 +93,8 @@ function tie() {
     score.textContent = "Your score = meh"
     tieVAR.play()
     player2FUNC()
+    playerhealFUNC()
+    playergunFUNC()
 }
 function lose() {
     HPpVAR = HPpVAR - 1;
@@ -99,6 +104,7 @@ function lose() {
     player2FUNC()
     loseheartPlayer()
     playerhealFUNC()
+    playergunFUNC()
 }
 function win() {
     HPcVAR = HPcVAR - 1;
@@ -108,6 +114,7 @@ function win() {
     player2FUNC()
     loseheartComputer()
     gunFUNC()
+    playergunFUNC()
 }
 function player2FUNC() {
     if(player2 == 0) {
@@ -160,6 +167,7 @@ function loseheartPlayer() {
 
 // LOSE SCREEN
     musicVAR.pause();
+    bossmusicVAR.pause();
     losemusicVAR.play();
     contentVAR.innerHTML = "<div class='endinglose'><input type='image' id='game' class='afro' src='picture/afro.png' onclick='virusFUNC()'><p class='hugefont'>YOU LOST!</p><p class='smallfont'>You have been infected by Trojan:GAYVirus.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>This tech support will help you!</p></div><input type='image' id='game' class='menu' src='picture/retry.png' onclick='retryFUNC()'>"
     }
@@ -196,13 +204,15 @@ function loseheartComputer() {
 
     } else if(HPcVAR == 1) {
         HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
+        bossfunc()
         setTimeout(HPcomputer, 1000)
-
+        bossmodeVAR = bossmodeVAR + 1
     } else if(HPcVAR == 0) {
     HPcomputerVAR.innerHTML = "<p>"
 
 // WIN SCREEN
     musicVAR.pause();
+    bossmusicVAR.pause();
     winmusicVAR.play();
     contentVAR.innerHTML = "<div class='endingwin'><a href='TicTacToe/'><input type='image' id='game' class='afro' src='picture/bryandead2.png' onclick='hitFUNC()'></a><p class='hugefont'>Bryan is die :P!</p><p class='smallfont'>You have been blessed by UwU:AntigayAura.Win32/Agent!</p><p class='bigfont'>What to do now you ask?</p><p class='bigfont'>Well celebrate of course! OwO</p></div><input type='image' id='game' class='menu' src='picture/retry.png' onclick='retryFUNC()'>"
     }
@@ -279,10 +289,13 @@ function retryFUNC() {
 var kanan2VAR = document.getElementById("kanan2ID")
 var kiri2VAR = document.getElementById("kiri2ID")
 var dhuarVAR = document.getElementById("dhuarID")
+var dhuar2VAR = document.getElementById("dhuar2ID")
 var gaeVAR = document.getElementById("gaeID")
 var healVAR = document.getElementById("healID")
+var bossmusicVAR = document.getElementById("bossID")
 var healVAR2 = 0
-var nullVAR = 0
+var healposVAR = 0
+var bossmodeVAR = 0
 
 //BRYAN POWERS
 
@@ -293,10 +306,22 @@ function gunFUNC() {
         dhuarVAR.play()
         loseheartPlayer()   
         setTimeout(clearkananFUNC, 1000)
-
     } else if(gunVAR == 1) {
         HPcVAR = HPcVAR + 2
-        kanan2VAR.innerHTML = "<img class='gun' src='picture/bryan.png'>"
+        kanan2VAR.innerHTML = "<img class='gun' src='picture/heal.png'>"
+        gaeVAR.play()
+        healVAR.play()
+        HPcomputer()
+        setTimeout(clearkananFUNC, 1000)
+    } else if(gunVAR == 3 && bossmodeVAR == 1) {
+        HPpVAR = HPpVAR - 2
+        kanan2VAR.innerHTML = "<img class='gun' src='picture/gun3.png'>"
+        dhuar2VAR.play()
+        loseheartPlayer()   
+        setTimeout(clearkananFUNC, 1000)
+    } else if(gunVAR == 4 && bossmodeVAR == 1) {
+        HPcVAR = HPcVAR + 2
+        kanan2VAR.innerHTML = "<img class='gun' src='picture/heal2.jpg'>"
         gaeVAR.play()
         healVAR.play()
         HPcomputer()
@@ -304,28 +329,106 @@ function gunFUNC() {
     }
 }
 function clearkananFUNC() {
-    kanan2VAR.innerHTML = "<p></p>"
+    healVAR2 = 0
+    if(healVAR2 == 0) {
+        kanan2VAR.innerHTML = "<p></p>"
+    }
+}
+function clearkiriFUNC() {
+    healVAR2 = 0
+    if(healVAR2 == 0) {
+        kiri2VAR.innerHTML = "<p></p>"
+    }
 }
 
 //PLAYER POWERS
 
 function playerhealFUNC() {
-    if(healVAR2 == 0) {
-        healVAR2 = 1
-        kiri2VAR.innerHTML = "<input type='image' class='heal' src='picture/heal.png' onmousedown='healplayerFUNC()'>"
-        healVAR.play()
-        setTimeout(clearkiriFUNC, 2000)
+    if(healVAR2 == 0 && playerhealVAR == 0) {
+        if(healposVAR == 0) {
+            healVAR2 = 1
+            kiri2VAR.innerHTML = "<input type='image' class='heal' src='picture/heal.png' onmousedown='healplayerFUNC()'>"
+            healVAR.play()
+            setTimeout(clearkiriFUNC, 2000)
+        }
+        else if(healposVAR == 1) {
+            healVAR2 = 1
+            kanan2VAR.innerHTML = "<input type='image' class='heal' src='picture/heal.png' onmousedown='healplayerFUNC()'>"
+            healVAR.play()
+            setTimeout(clearkananFUNC, 2000)
+        }
+    }
+    else if(bossmodeVAR == 1) {
+        if(healVAR2 == 0 && playerhealVAR == 1) {
+            if(healposVAR == 0) {
+                healVAR2 = 1
+                kiri2VAR.innerHTML = "<input type='image' class='heal' src='picture/heal2.jpg' onmousedown='healplayerFUNC()'>"
+                healVAR.play()
+                setTimeout(clearkiriFUNC, 2000)
+            }
+            else if(healposVAR == 1) {
+                healVAR2 = 1
+                kanan2VAR.innerHTML = "<input type='image' class='heal' src='picture/heal2.jpg' onmousedown='healplayer2FUNC()'>"
+                healVAR.play()
+                setTimeout(clearkananFUNC, 2000)
+            }
+        }
     }
 }
+function playergunFUNC() {
+    if(bossmodeVAR == 1) {
+        if(healVAR2 == 0 && playerhealVAR == 2) {
+            if(healposVAR == 0) {
+                healVAR2 = 1
+                kiri2VAR.innerHTML = "<input type='image' class='heal' src='picture/gun2.png' onmousedown='gunplayerFUNC()'>"
+                healVAR.play()
+                setTimeout(clearkiriFUNC, 2000)
+            }
+            else if(healposVAR == 1) {
+                healVAR2 = 1
+                kanan2VAR.innerHTML = "<input type='image' class='heal' src='picture/gun2.png' onmousedown='gunplayerFUNC()'>"
+                healVAR.play()
+                setTimeout(clearkananFUNC, 2000)
+            }
+        }
+    }
+}
+function gunplayerFUNC() {
+    HPcVAR = HPcVAR - 1
+    dhuarVAR.play()
+    kiri2VAR.innerHTML = "<p></p>"
+    kanan2VAR.innerHTML = "<p></p>"
+    loseheartComputer()
+}
+
+
+// SMALL HEAL
+
 function healplayerFUNC() {
+    HPpVAR = HPpVAR + 1
+    healVAR.play()
+    kiri2VAR.innerHTML = "<p></p>"
+    kanan2VAR.innerHTML = "<p></p>"
+    HPplayer() 
+}
+
+// BIG HEAL
+
+function healplayer2FUNC() {
     HPpVAR = HPpVAR + 2
     healVAR.play()
     kiri2VAR.innerHTML = "<p></p>"
+    kanan2VAR.innerHTML = "<p></p>"
     HPplayer() 
 }
-function clearkiriFUNC() {
-    healVAR2 = 0
-    if(healVAR2 == 0) {
-    kiri2VAR.innerHTML = "<p></p>"
+
+// BOSS TIME
+
+function bossfunc() {
+    if(bossmodeVAR == 1) {
+        HPcVAR = 8
+        musicVAR.pause()
+        bossmusicVAR.play()
+        document.getElementById("asd").innerHTML = `<img src="picture/bryan2.png" class="bryanBOSS" id="bounce"></img>`
     }
 }
