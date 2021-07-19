@@ -31,7 +31,19 @@ var HPcVAR = 5
 var resultVAR = document.getElementById("result");
 var humanVAR = document.getElementById("human")
 var computerVAR = document.getElementById("computer")
+var kiriVAR = document.getElementById("kiriID")
 
+function mute() {
+    kiriVAR.innerHTML = `<input id="game" class="menu" type="image" src="picture/0.png" onclick="engine1()"><input id="game" class="menu" type="image" src="picture/1.png" onclick="engine2()"><input id="game" class="menu" type="image" src="picture/2.png" onclick="engine3()">`
+    tieVAR.pause()
+    tieVAR.currentTime = 0;
+    loseVAR.pause()
+    loseVAR.currentTime = 0;
+    winVAR.pause()
+    winVAR.currentTime = 0;
+    musicVAR.play()
+    startVAR.innerHTML = "<p>"
+}
 
 function engine1() {
     player1 = 0
@@ -56,18 +68,7 @@ function process() {
     winVAR.pause()
     winVAR.currentTime = 0;
     RandomAI();
-    
-}
-function mute() {
-    tieVAR.pause()
-    tieVAR.currentTime = 0;
-    loseVAR.pause()
-    loseVAR.currentTime = 0;
-    winVAR.pause()
-    winVAR.currentTime = 0;
-    musicVAR.play()
-    startVAR.innerHTML = "<p>"
-    kiriVAR.innerHTML = "<input id='game' class='menu' type='image' src='picture/0.png' onclick='engine1()'> <input id='game' class='menu' type='image' src='picture/1.png' onclick='engine2()'> <input id='game' class='menu' type='image' src='picture/2.png' onclick='engine3()'>"
+    calculation()
 }
 
 function RandomAI() {
@@ -282,7 +283,6 @@ var gaeVAR = document.getElementById("gaeID")
 var healVAR = document.getElementById("healID")
 var healVAR2 = 0
 var nullVAR = 0
-var kiriVAR = document.getElementById("kiriID")
 
 //BRYAN POWERS
 
