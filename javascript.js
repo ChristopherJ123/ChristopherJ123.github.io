@@ -204,9 +204,9 @@ function loseheartComputer() {
 
     } else if(HPcVAR == 1) {
         HPcomputerVAR.innerHTML = "<img src='picture/heart.png' alt='heart'> <img src='picture/heart.png' alt='heart' id='heart'>"
-        bossfunc()
         setTimeout(HPcomputer, 1000)
         bossmodeVAR = bossmodeVAR + 1
+        bossfunc()
     } else if(HPcVAR == 0) {
     HPcomputerVAR.innerHTML = "<p>"
 
@@ -306,13 +306,16 @@ function gunFUNC() {
         dhuarVAR.play()
         loseheartPlayer()   
         setTimeout(clearkananFUNC, 1000)
-    } else if(gunVAR == 1) {
-        HPcVAR = HPcVAR + 2
-        kanan2VAR.innerHTML = "<img class='gun' src='picture/heal.png'>"
-        gaeVAR.play()
-        healVAR.play()
-        HPcomputer()
-        setTimeout(clearkananFUNC, 1000)
+    } else if(HPcVAR == 1) {
+        bossmodeVAR == 1
+            bossfunc()
+        } else if(gunVAR == 1) {
+            HPcVAR = HPcVAR + 2
+            kanan2VAR.innerHTML = "<img class='gun' src='picture/heal.png'>"
+            gaeVAR.play()
+            healVAR.play()
+            HPcomputer()
+            setTimeout(clearkananFUNC, 1000)
     } else if(gunVAR == 3 && bossmodeVAR == 1) {
         HPpVAR = HPpVAR - 2
         kanan2VAR.innerHTML = "<img class='gun' src='picture/gun3.png'>"
@@ -430,5 +433,6 @@ function bossfunc() {
         musicVAR.pause()
         bossmusicVAR.play()
         document.getElementById("asd").innerHTML = `<img src="picture/bryan2.png" class="bryanBOSS" id="bounce"></img>`
+        loseheartComputer()
     }
 }
