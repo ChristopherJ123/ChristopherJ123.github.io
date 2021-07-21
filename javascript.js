@@ -310,7 +310,7 @@ function gunFUNC() {
         bossmodeVAR == 1
             bossfunc()
         } else if(gunVAR == 1) {
-            HPcVAR = HPcVAR + 2
+            HPcVAR = HPcVAR + 1
             kanan2VAR.innerHTML = "<img class='gun' src='picture/heal.png'>"
             gaeVAR.play()
             healVAR.play()
@@ -365,7 +365,7 @@ function playerhealFUNC() {
         if(healVAR2 == 0 && playerhealVAR == 1) {
             if(healposVAR == 0) {
                 healVAR2 = 1
-                kiri2VAR.innerHTML = "<input type='image' class='heal' src='picture/heal2.jpg' onmousedown='healplayerFUNC()'>"
+                kiri2VAR.innerHTML = "<input type='image' class='heal' src='picture/heal2.jpg' onmousedown='healplayer2FUNC()'>"
                 healVAR.play()
                 setTimeout(clearkiriFUNC, 2000)
             }
