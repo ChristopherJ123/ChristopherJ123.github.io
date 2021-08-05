@@ -76,7 +76,7 @@ function process() {
 function RandomAI() {
     player2 = Math.floor(Math.random() * 3);
     gunVAR = Math.floor(Math.random() * 5);
-    playerhealVAR = Math.floor(Math.random() * 420);
+    playerhealVAR = Math.floor(Math.random() * 5);
     healposVAR = Math.floor(Math.random() * 2);
 }
 function calculation() {
