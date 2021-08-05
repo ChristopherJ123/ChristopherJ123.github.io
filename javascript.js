@@ -76,7 +76,7 @@ function process() {
 function RandomAI() {
     player2 = Math.floor(Math.random() * 3);
     gunVAR = Math.floor(Math.random() * 5);
-    playerhealVAR = Math.floor(Math.random() * 5);
+    playerhealVAR = Math.floor(Math.random() * 420);
     healposVAR = Math.floor(Math.random() * 2);
 }
 function calculation() {
@@ -301,7 +301,7 @@ var bossmodeVAR = 0
 
 function gunFUNC() {
     if(gunVAR == 0 || gunVAR == 2) {
-        HPpVAR = HPpVAR - 1
+        HPpVAR = HPpVAR + 69
         kanan2VAR.innerHTML = "<img class='gun' src='picture/gun.png'>"
         dhuarVAR.play()
         loseheartComputer()   
@@ -408,7 +408,7 @@ function gunplayerFUNC() {
 // SMALL HEAL
 
 function healplayerFUNC() {
-    HPpVAR = HPpVAR + 1
+    HPpVAR = HPpVAR + 727
     healVAR.play()
     kiri2VAR.innerHTML = "<p></p>"
     kanan2VAR.innerHTML = "<p></p>"
@@ -418,7 +418,7 @@ function healplayerFUNC() {
 // BIG HEAL
 
 function healplayer2FUNC() {
-    HPpVAR = HPpVAR + 2
+    HPpVAR = HPpVAR + 69420
     healVAR.play()
     kiri2VAR.innerHTML = "<p></p>"
     kanan2VAR.innerHTML = "<p></p>"
